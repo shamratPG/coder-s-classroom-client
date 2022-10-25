@@ -1,7 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { themeChange } from 'theme-change';
+import { FaSun, FaMoon } from "react-icons/fa";
+import { useState } from 'react';
+
 
 const Header = () => {
+
+    const [theme, setTheme] = useState(true);
+
+    useEffect(() => {
+        themeChange(false);
+        // 👆 false parameter is required for react project
+    }, [])
+
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -16,17 +29,25 @@ const Header = () => {
                             <li><Link to='/blogs'>Blogs</Link></li>
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost normal-case text-xl">Coder's Classroom</Link>
+                    <Link to='/home' className="btn btn-ghost normal-case text-xl">Coder's Classroom</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         <li><Link to='/courses'>Courses</Link></li>
                         <li><Link to='/faqs'>FAQs</Link></li>
                         <li><Link to='/blogs'>Blogs</Link></li>
+
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="btn">Get started</Link>
+
+                    {theme ?
+                        <button onClick={() => setTheme(!theme)} className='mr-4' data-set-theme="dark" data-act-class="ACTIVECLASS">
+                            <FaMoon></FaMoon>
+                        </button> :
+                        <button onClick={() => setTheme(!theme)} className='mr-4' data-set-theme="light" data-act-class="ACTIVECLASS">
+                            <FaSun></FaSun>
+                        </button>}
                 </div>
             </div>
 
