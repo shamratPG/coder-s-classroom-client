@@ -42,10 +42,10 @@ const Header = () => {
                 <div className="navbar-end">
 
                     {theme ?
-                        <button onClick={() => setTheme(!theme)} className='mr-4' data-set-theme="dark" data-act-class="ACTIVECLASS">
+                        <button onClick={() => setTheme(!theme)} className='mr-4' data-set-theme="night" data-act-class="ACTIVECLASS">
                             <FaMoon></FaMoon>
                         </button> :
-                        <button onClick={() => setTheme(!theme)} className='mr-4' data-set-theme="light" data-act-class="ACTIVECLASS">
+                        <button onClick={() => setTheme(!theme)} className='mr-4' data-set-theme="garden" data-act-class="ACTIVECLASS">
                             <FaSun></FaSun>
                         </button>}
                 </div>

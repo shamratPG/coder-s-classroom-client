@@ -1,9 +1,12 @@
 import React from 'react';
+import SideBar from '../../components/SideBar/SideBar';
 
 const Courses = () => {
+
+
     return (
         <div>
-            <h2>Courses</h2>
+            <SideBar></SideBar>
         </div>
     );
 };
