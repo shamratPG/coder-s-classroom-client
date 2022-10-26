@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../Layout/Main';
+import BlogItem from '../Pages/BlogItem/BlogItem';
 import Blogs from '../Pages/Blogs/Blogs';
 import CourseDetails from '../Pages/CourseDetails/CourseDetails';
 import Courses from '../Pages/Courses/Courses';
@@ -29,8 +30,21 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/courses/:courseId',
-                element: <CourseDetails></CourseDetails>
-            }
+                element: <CourseDetails></CourseDetails>,
+                loader: async ({ params }) => {
+                    return fetch(`https://coders-classroom-server.vercel.app/courses/${params.courseId}`);
+                }
+
+            },
+            {
+                path: '/blogs/:blogId',
+                element: <BlogItem></BlogItem>,
+                loader: async ({ params }) => {
+                    return fetch(`https://coders-classroom-server.vercel.app/blogs/${params.blogId}`);
+                }
+
+            },
+
         ]
     }
 ])
