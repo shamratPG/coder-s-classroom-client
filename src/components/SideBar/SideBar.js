@@ -18,10 +18,10 @@ const SideBar = () => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-4 overflow-y-auto w-80 text-base-content text-center">
+                <ul className="menu p-4 overflow-y-auto w-auto  text-base-center">
                     {/* Sidebar content here */}
                     {
-                        courses.map(course => <li key={course.id}><Link>{course.name}</Link></li>)
+                        courses.map(course => <li key={course.id}><Link to={`/courses/${course.id}`}>{course.name}</Link></li>)
                     }
                 </ul>
 

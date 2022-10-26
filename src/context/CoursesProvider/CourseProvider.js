@@ -8,7 +8,7 @@ const CourseProvider = ({ children }) => {
 
     const [courses, setCourses] = useState([]);
     useEffect(() => {
-        fetch('https://coders-classroom-server.vercel.app/courses')
+        fetch('https://coders-classroom-server-shamratpg.vercel.app/courses')
             .then(data => data.json())
             .then(result => {
                 setCourses(result)
