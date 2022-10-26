@@ -14,7 +14,7 @@ const Courses = () => {
                 <SideBar></SideBar>
             </div>
             <div className='col-span-6 my-12'>
-                <h1 className='mb-4 text-semibold text-3xl'>All Courses</h1>
+                <h1 className='mb-4 font-semibold text-3xl'>All Courses</h1>
                 <div>
                     <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
                         {

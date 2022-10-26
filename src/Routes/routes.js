@@ -7,6 +7,7 @@ import Courses from '../Pages/Courses/Courses';
 import Faqs from '../Pages/Faqs/Faqs';
 import Home from '../Pages/Home/Home';
 import LogIn from '../Pages/LogIn/LogIn';
+import NotFound from '../Pages/NotFound/NotFound';
 import Register from '../Pages/Register/Register';
 
 const routes = createBrowserRouter([
@@ -56,6 +57,11 @@ const routes = createBrowserRouter([
                 loader: async ({ params }) => {
                     return fetch(`https://coders-classroom-server.vercel.app/blogs/${params.blogId}`);
                 }
+
+            },
+            {
+                path: '/*',
+                element: <NotFound></NotFound>
 
             },
 

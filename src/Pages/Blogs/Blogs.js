@@ -14,7 +14,7 @@ const Blogs = () => {
     }, [])
     return (
         <div className='bg-base-200'>
-            <h1 className='text-3xl pt-16 pb-12'>Recent Blogs</h1>
+            <h1 className='font-semibold text-3xl pt-16 pb-12'>Recent Blogs</h1>
             <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mx-12 pb-12'>
 
                 {

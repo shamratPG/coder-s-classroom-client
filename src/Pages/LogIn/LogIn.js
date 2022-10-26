@@ -5,7 +5,7 @@ const LogIn = () => {
     return (
         <div className='py-12 bg-base-200 px-2'>
             <form className="form-control w-full sm:w-3/5 mx-auto bg-base-100 rounded-lg p-8 py-16 flex justify-center items-center shadow-lg">
-                <h1 className='text-semibold text-2xl'>Please Log In</h1>
+                <h1 className='font-semibold text-2xl'>Please Log In</h1>
                 <div className='my-5'>
                     <label className="input-group">
                         <span className='px-8'>Email</span>
