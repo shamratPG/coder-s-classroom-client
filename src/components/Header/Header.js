@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { themeChange } from 'theme-change';
-import { FaSun, FaMoon } from "react-icons/fa";
+import { FaSun, FaMoon, FaUserAlt, FaUserAltSlash, FaLaptopCode } from "react-icons/fa";
 import { useState } from 'react';
 import { useContext } from 'react';
 import { CourseContext } from '../../context/CoursesProvider/CourseProvider';
@@ -14,6 +14,7 @@ const Header = () => {
 
     const { courses } = useContext(CourseContext);
 
+    const userLogIn = true;
 
     useEffect(() => {
         themeChange(false);
@@ -23,6 +24,9 @@ const Header = () => {
     return (
 
         <div>
+            <div className='sm:hidden'>
+                <Link to='/home' className="btn btn-ghost normal-case text-xl"><FaLaptopCode></FaLaptopCode> <span className='pl-2'>Coder's Classroom</span></Link>
+            </div>
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -43,13 +47,13 @@ const Header = () => {
                                     {
                                         courses.map(course => <li key={course.id}><Link to={`/courses/${course.id}`}>{course.name}</Link></li>)
                                     }
-                                    <li><Link>Submenu 1</Link></li>
-                                    <li><Link>Submenu 2</Link></li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
-                    <Link to='/home' className="btn btn-ghost normal-case text-xl">Coder's Classroom</Link>
+                    <div className='hidden sm:block'>
+                        <Link to='/home' className="btn btn-ghost normal-case text-xl"><FaLaptopCode></FaLaptopCode> <span className='pl-2'>Coder's Classroom</span></Link>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
@@ -61,13 +65,40 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
 
-                    {theme ?
-                        <button onClick={() => setTheme(!theme)} className='mr-4' data-set-theme="dark">
-                            <FaMoon></FaMoon>
-                        </button> :
-                        <button onClick={() => setTheme(!theme)} className='mr-4' data-set-theme="light">
-                            <FaSun></FaSun>
-                        </button>}
+                    {/* User Icon  */}
+                    <div>
+                        {
+                            userLogIn ?
+                                <FaUserAlt></FaUserAlt> :
+                                <FaUserAltSlash></FaUserAltSlash>
+
+                        }
+                    </div>
+
+                    {/* Log In Btn  */}
+                    <div className='mx-4'>
+                        {userLogIn ?
+
+                            <Link className='btn btn-primary' to='/login'>
+                                Log Out
+                            </Link> :
+                            <Link className='btn btn-primary' to='/login'>
+                                Log In
+                            </Link>
+                        }
+                    </div>
+
+
+                    {/* Theme Toggle Btn  */}
+                    <div className='mr-4'>
+                        {theme ?
+                            <button onClick={() => setTheme(!theme)} className='mr-4' data-set-theme="dark">
+                                <FaMoon></FaMoon>
+                            </button> :
+                            <button onClick={() => setTheme(!theme)} className='mr-4' data-set-theme="light">
+                                <FaSun></FaSun>
+                            </button>}
+                    </div>
                 </div>
             </div>
 

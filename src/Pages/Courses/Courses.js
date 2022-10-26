@@ -13,11 +13,14 @@ const Courses = () => {
             <div className=" col-span-2">
                 <SideBar></SideBar>
             </div>
-            <div className='col-span-6'>
-                <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
-                    {
-                        courses.map(course => <CourseCard key={course.id} course={course}></CourseCard>)
-                    }
+            <div className='col-span-6 my-12'>
+                <h1 className='mb-4 text-semibold text-3xl'>All Courses</h1>
+                <div>
+                    <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
+                        {
+                            courses.map(course => <CourseCard key={course.id} course={course}></CourseCard>)
+                        }
+                    </div>
                 </div>
             </div>
 

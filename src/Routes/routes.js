@@ -6,6 +6,8 @@ import CourseDetails from '../Pages/CourseDetails/CourseDetails';
 import Courses from '../Pages/Courses/Courses';
 import Faqs from '../Pages/Faqs/Faqs';
 import Home from '../Pages/Home/Home';
+import LogIn from '../Pages/LogIn/LogIn';
+import Register from '../Pages/Register/Register';
 
 const routes = createBrowserRouter([
     {
@@ -31,6 +33,14 @@ const routes = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/login',
+                element: <LogIn></LogIn>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             },
             {
                 path: '/courses/:courseId',
