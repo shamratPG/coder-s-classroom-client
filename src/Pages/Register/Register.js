@@ -1,10 +1,21 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import ThirdPartyLogin from '../../components/ThirdPartyLogin/ThirdPartyLogin';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
+
+    const { createUser } = useContext(AuthContext);
+
+    const createNewUser = event => {
+        event.preventDefault();
+        console.log(event.target)
+    }
+
     return (
         <div className='py-12 bg-base-200 px-2'>
-            <form className="form-control w-full sm:w-3/5 mx-auto bg-base-100 rounded-lg p-8 py-16 flex justify-center items-center shadow-lg">
+            <form onSubmit={createNewUser} className="form-control w-full sm:w-3/5 mx-auto bg-base-100 rounded-lg p-8 py-16 flex justify-center items-center shadow-lg">
                 <h1 className='font-semibold text-2xl'>Please Sign Up</h1>
                 <div className='my-5'>
                     <label className="input-group">
@@ -31,7 +42,11 @@ const Register = () => {
                     </label>
                 </div>
                 <button type="submit" className='btn btn-primary my-4'>Sign Up</button>
+
+
                 <p>Already have an account? <Link className='link link-primary' to='/login'>Log In</Link></p>
+
+                <ThirdPartyLogin></ThirdPartyLogin>
             </form>
         </div>
     );

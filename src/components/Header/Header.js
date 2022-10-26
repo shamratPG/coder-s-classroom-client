@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { themeChange } from 'theme-change';
-import { FaSun, FaMoon, FaUserAlt, FaUserAltSlash, FaLaptopCode } from "react-icons/fa";
+import { FaSun, FaMoon, FaLaptopCode } from "react-icons/fa";
 import { useState } from 'react';
 import { useContext } from 'react';
 import { CourseContext } from '../../context/CoursesProvider/CourseProvider';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 
 const Header = () => {
@@ -14,7 +15,11 @@ const Header = () => {
 
     const { courses } = useContext(CourseContext);
 
-    const userLogIn = true;
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut().then(() => { }).catch(e => console.error(e));
+    }
 
     useEffect(() => {
         themeChange(false);
@@ -66,20 +71,29 @@ const Header = () => {
                 <div className="navbar-end">
 
                     {/* User Icon  */}
-                    <div>
+                    <div className=''>
                         {
-                            userLogIn ?
-                                <FaUserAlt></FaUserAlt> :
-                                <FaUserAltSlash></FaUserAltSlash>
+                            user ?
+                                <div className="avatar pt-2">
+                                    <div className="w-12 rounded-full ">
+                                        <img src={user.photoURL} alt='User' />
+                                    </div>
+                                </div>
+                                :
+                                <div className="avatar placeholder">
+                                    <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
+                                        <span>User</span>
+                                    </div>
+                                </div>
 
                         }
                     </div>
 
                     {/* Log In Btn  */}
                     <div className='mx-4'>
-                        {userLogIn ?
+                        {user ?
 
-                            <Link className='btn btn-primary' to='/login'>
+                            <Link onClick={handleLogout} className='btn btn-primary'>
                                 Log Out
                             </Link> :
                             <Link className='btn btn-primary' to='/login'>

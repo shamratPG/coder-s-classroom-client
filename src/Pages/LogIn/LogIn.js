@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ThirdPartyLogin from '../../components/ThirdPartyLogin/ThirdPartyLogin';
 
 const LogIn = () => {
     return (
@@ -19,7 +20,8 @@ const LogIn = () => {
                     </label>
                 </div>
                 <button type="submit" className='btn btn-primary my-4'>Log In</button>
-                <p>Does not have account? <Link className='link link-primary' to='/register'>Register here</Link></p>
+                <p>Do not have account? <Link className='link link-primary' to='/register'>Register here</Link></p>
+                <ThirdPartyLogin></ThirdPartyLogin>
             </form>
         </div>
     );
