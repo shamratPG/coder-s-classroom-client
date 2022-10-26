@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { themeChange } from 'theme-change';
-import { FaSun, FaMoon, FaLaptopCode } from "react-icons/fa";
+import { FaSun, FaMoon, FaLaptopCode, FaUserAltSlash } from "react-icons/fa";
 import { useState } from 'react';
 import { useContext } from 'react';
 import { CourseContext } from '../../context/CoursesProvider/CourseProvider';
@@ -74,17 +74,24 @@ const Header = () => {
                     <div className=''>
                         {
                             user ?
-                                <div className="avatar pt-2">
-                                    <div className="w-12 rounded-full ">
-                                        <img src={user.photoURL} alt='User' />
-                                    </div>
+                                <div>
+                                    {user?.photoURL ?
+                                        <div className="avatar pt-2">
+                                            <div className="w-12 rounded-full ">
+                                                <img src={user.photoURL} alt='User' />
+                                            </div>
+                                        </div>
+                                        :
+                                        <div className="avatar placeholder">
+                                            <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
+                                                <span>Img</span>
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
                                 :
-                                <div className="avatar placeholder">
-                                    <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
-                                        <span>User</span>
-                                    </div>
-                                </div>
+                                <FaUserAltSlash></FaUserAltSlash>
+
 
                         }
                     </div>

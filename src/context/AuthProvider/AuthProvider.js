@@ -5,7 +5,8 @@ import {
     onAuthStateChanged,
     signInWithPopup,
     signOut,
-    createUserWithEmailAndPassword
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword
 } from "firebase/auth";
 
 import app from '../../firebase/firebase.config';
@@ -29,8 +30,13 @@ const AuthProvider = ({ children }) => {
     }
 
     // Pop Up sign In 
-    const providerLogin = (provider) => {
+    const providerLogin = provider => {
         return signInWithPopup(auth, provider)
+    }
+
+    //
+    const userLogIn = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password)
     }
 
     // Sign Out 
@@ -49,7 +55,7 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const authInfo = { user, providerLogin, logOut, createUser }
+    const authInfo = { user, providerLogin, logOut, createUser, userLogIn }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

@@ -10,7 +10,17 @@ const Register = () => {
 
     const createNewUser = event => {
         event.preventDefault();
-        console.log(event.target)
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photo.value
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createUser(email, password)
+            .then((() => { })).catch(error => console.error(error))
+
+        form.reset();
+
     }
 
     return (
@@ -32,13 +42,13 @@ const Register = () => {
                 <div className='my-5'>
                     <label className="input-group">
                         <span className='px-8'>Email</span>
-                        <input name='email' type="email" className="input input-bordered" placeholder="Your Email" />
+                        <input name='email' type="email" className="input input-bordered" placeholder="Your Email" required />
                     </label>
                 </div>
                 <div className="my-5">
                     <label className="input-group">
                         <span>Password</span>
-                        <input name='password' type="password" className="input input-bordered" placeholder="Password" />
+                        <input name='password' type="password" className="input input-bordered" placeholder="Password" required />
                     </label>
                 </div>
                 <button type="submit" className='btn btn-primary my-4'>Sign Up</button>
