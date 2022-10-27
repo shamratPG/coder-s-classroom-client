@@ -11,11 +11,11 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Header = () => {
 
-    const [theme, setTheme] = useState(true);
-
     const { courses } = useContext(CourseContext);
-
     const { user, logOut } = useContext(AuthContext);
+
+
+    const [theme, setTheme] = useState(true);
 
     const handleLogout = () => {
         logOut().then(() => { }).catch(e => console.error(e));
@@ -74,20 +74,8 @@ const Header = () => {
                     <div className=''>
                         {
                             user ?
-                                <div>
-                                    {user?.photoURL ?
-                                        <div className="avatar pt-2">
-                                            <div className="w-12 rounded-full ">
-                                                <img src={user.photoURL} alt='User' />
-                                            </div>
-                                        </div>
-                                        :
-                                        <div className="avatar placeholder">
-                                            <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
-                                                <span>Img</span>
-                                            </div>
-                                        </div>
-                                    }
+                                <div className='tooltip tooltip-bottom tooltip-primary w-12 pt-2' data-tip={user.displayName}>
+                                    <img className='rounded-full' src={user.photoURL} alt='User' />
                                 </div>
                                 :
                                 <FaUserAltSlash></FaUserAltSlash>

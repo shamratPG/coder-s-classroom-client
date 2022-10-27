@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../Layout/Main';
 import BlogItem from '../Pages/BlogItem/BlogItem';
 import Blogs from '../Pages/Blogs/Blogs';
+import CheckOut from '../Pages/CheckOut/CheckOut';
 import CourseDetails from '../Pages/CourseDetails/CourseDetails';
 import Courses from '../Pages/Courses/Courses';
 import Faqs from '../Pages/Faqs/Faqs';
@@ -48,6 +49,14 @@ const routes = createBrowserRouter([
                 element: <CourseDetails></CourseDetails>,
                 loader: async ({ params }) => {
                     return fetch(`https://coders-classroom-server.vercel.app/courses/${params.courseId}`);
+                }
+
+            },
+            {
+                path: '/checkOut/:checkOutId',
+                element: <CheckOut></CheckOut>,
+                loader: async ({ params }) => {
+                    return fetch(`https://coders-classroom-server.vercel.app/courses/${params.checkOutId}`);
                 }
 
             },
