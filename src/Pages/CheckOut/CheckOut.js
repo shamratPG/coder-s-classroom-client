@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import NotFound from '../NotFound/NotFound';
 
 const CheckOut = () => {
     const course = useLoaderData();
@@ -10,6 +11,10 @@ const CheckOut = () => {
     }
 
     const price = random();
+
+    if (!course) {
+        return <NotFound></NotFound>
+    }
 
     return (
         <div className='bg-base-200 py-12'>

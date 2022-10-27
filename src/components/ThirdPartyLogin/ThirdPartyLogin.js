@@ -2,7 +2,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const ThirdPartyLogin = () => {
@@ -15,10 +15,20 @@ const ThirdPartyLogin = () => {
     // Github Sign In 
     const githubProvider = new GithubAuthProvider();
 
+
+    // location 
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/'
+
     //Sign In with pop up
     const handleSignIn = provider => {
         providerLogin(provider)
-            .then(() => { }).catch(error => console.log(error))
+            .then(() => {
+                navigate(from, { replace: true });
+            }).catch(error => console.log(error))
     }
     return (
         <div className='flex flex-col justify-around'>
