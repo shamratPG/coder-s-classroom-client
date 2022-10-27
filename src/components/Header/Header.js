@@ -68,14 +68,14 @@ const Header = () => {
 
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end justify-end">
 
                     {/* User Icon  */}
                     <div className=''>
                         {
                             user ?
                                 <div className='tooltip tooltip-bottom tooltip-primary pt-2 ' data-tip={user.displayName}>
-                                    <img className='w-12 h-12 rounded-full' src={user.photoURL} alt='User' />
+                                    <img className='w-12 rounded-full' src={user.photoURL} alt='User' />
                                 </div>
                                 :
                                 <FaUserAltSlash></FaUserAltSlash>
@@ -99,7 +99,7 @@ const Header = () => {
 
 
                     {/* Theme Toggle Btn  */}
-                    <div className='mr-4'>
+                    <div className=''>
                         {theme ?
                             <button onClick={() => setTheme(!theme)} className='mr-4' data-set-theme="dark">
                                 <FaMoon></FaMoon>

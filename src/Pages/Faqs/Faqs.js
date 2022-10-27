@@ -2,11 +2,11 @@ import React from 'react';
 
 const Faqs = () => {
     return (
-        <div className='bg-base-200 py-12'>
+        <div className='bg-base-200 py-12 w-full px-2'>
 
             <h1 className='text-3xl font-semibold'>Frequently Asked Questions</h1>
 
-            <div className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box w-[100vh] mx-auto my-8">
+            <div className="collapse bg-base-100 rounded-box w-full mx-auto my-8 collapse-arrow">
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title">
                     <span className="text-xl">Specializations Certificates</span>
@@ -16,7 +16,7 @@ const Faqs = () => {
                 </div>
             </div>
 
-            <div className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box w-[100vh] mx-auto my-8">
+            <div className="collapse bg-base-100 rounded-box w-full mx-auto my-8 collapse-arrow">
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title">
                     <span className="text-xl">Apply for Financial Aid or a Scholarship</span>
@@ -26,18 +26,18 @@ const Faqs = () => {
                 </div>
             </div>
 
-            <div className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box w-[100vh] mx-auto my-8">
+            <div className="collapse bg-base-100 rounded-box w-full mx-auto my-8 collapse-arrow">
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title">
                     <span className="text-xl">Video translations</span>
                 </div>
                 <div className="collapse-content">
-                    <p className='text-justify'>To see translated subtitles for a video, turn subtitles on and choose the language you want to see subtitles in.You can see what languages are available for a course by checking the course's description page. If a language is listed, that means at least 80\% of the course's video subtitles have been translated. When you search for courses, you can filter your search to find courses that have translations in certain languages.Not all videos have subtitles in all languages. Coursera currently has limited support for right-to-left languages.</p>
+                    <p className='text-justify'>To see translated subtitles for a video, turn subtitles on and choose the language you want to see subtitles in.You can see what languages are available for a course by checking the course's description page. If a language is listed, that means at least 80\% of the course's video subtitles have been translated. When you search for courses, you can filter your search to find courses that have translations in certain languages.Not all videos have subtitles in all languages. currently has limited support for right-to-left languages.</p>
                 </div>
             </div>
 
 
-            <div className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box w-[100vh] mx-auto my-8">
+            <div className="collapse bg-base-100 rounded-box w-full mx-auto my-8 collapse-arrow">
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title">
                     <span className="text-xl">Edit and re-submit a peer reviewed assignment</span>
