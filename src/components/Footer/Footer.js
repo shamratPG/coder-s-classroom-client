@@ -6,12 +6,7 @@ const Footer = () => {
         <div>
             <footer className="footer p-10 text-base-content">
                 <div className='flex flex-col items-center'>
-                    <div className="avatar">
-                        <div className="w-12 rounded-full">
-                            <img src="https://github.com/shamratPG/images/blob/main/codersClassroom/shamrat.jpg?raw=true" alt='Author' />
-                        </div>
-                    </div>
-                    <p>Md. Shamrat Hossain</p>
+                    <small>@copyright Md. Shamrat Hossain</small>
                 </div>
                 <div>
                     <span className="footer-title">
