@@ -38,7 +38,8 @@ This is a full stack demo project. I worked on both server and client side here.
 - React Router
 - React to PDF
 - Theme Change
-
+- [Courses Data API](https://coders-classroom-server.vercel.app/courses)
+- [Blogs Data API](https://coders-classroom-server.vercel.app/blogs)
 
 ## Author
 
