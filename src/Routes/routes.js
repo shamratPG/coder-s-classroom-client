@@ -10,6 +10,7 @@ import Home from '../Pages/Home/Home';
 import LogIn from '../Pages/LogIn/LogIn';
 import NotFound from '../Pages/NotFound/NotFound';
 import Register from '../Pages/Register/Register';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const routes = createBrowserRouter([
     {
@@ -54,7 +55,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/checkOut/:checkOutId',
-                element: <CheckOut></CheckOut>,
+                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
                 loader: async ({ params }) => {
                     return fetch(`https://coders-classroom-server.vercel.app/courses/${params.checkOutId}`);
                 }

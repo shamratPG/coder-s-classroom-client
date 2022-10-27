@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ThirdPartyLogin from '../../components/ThirdPartyLogin/ThirdPartyLogin';
@@ -6,7 +6,9 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, addProfile } = useContext(AuthContext);
+
+    const [error, setError] = useState('');
 
     const createNewUser = event => {
         event.preventDefault();
@@ -17,9 +19,16 @@ const Register = () => {
         const password = form.password.value;
 
         createUser(email, password)
-            .then((() => { })).catch(error => console.error(error))
+            .then(((result) => {
+                addProfile(name, photoURL)
+                    .then(() => { setError('') }).catch(error => setError(error.message));
+                console.log(result);
+                form.reset();
+            })).catch(error => setError(error.message));
 
-        form.reset();
+
+
+
 
     }
 
@@ -51,6 +60,11 @@ const Register = () => {
                         <input name='password' type="password" className="input input-bordered" placeholder="Password" required />
                     </label>
                 </div>
+
+                {
+                    error && <p className="text-red-600">{error}</p>
+
+                }
                 <button type="submit" className='btn btn-primary my-4'>Sign Up</button>
 
 

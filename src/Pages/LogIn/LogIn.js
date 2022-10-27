@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ThirdPartyLogin from '../../components/ThirdPartyLogin/ThirdPartyLogin';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const LogIn = () => {
 
+    const [error, setError] = useState('');
     const { userLogIn } = useContext(AuthContext);
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/'
 
     const userSignIn = event => {
         event.preventDefault();
@@ -14,9 +20,15 @@ const LogIn = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        userLogIn(email, password).then(() => { }).catch(error => console.error(error));
+        userLogIn(email, password).then(() => {
+            setError('');
+            navigate(from, { replace: true });
+            form.reset();
+        }).catch(error => {
+            setError(error.message)
+        });
 
-        form.reset();
+
 
     }
     return (
@@ -35,6 +47,12 @@ const LogIn = () => {
                         <input name='password' type="password" placeholder="Your Password" className="input input-bordered" required />
                     </label>
                 </div>
+
+                {
+                    error && <p className="text-red-600">{error}</p>
+
+                }
+
                 <button type="submit" className='btn btn-primary my-4'>Log In</button>
                 <p>Do not have account? <Link className='link link-primary' to='/register'>Register here</Link></p>
                 <ThirdPartyLogin></ThirdPartyLogin>

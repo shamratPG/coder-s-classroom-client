@@ -74,8 +74,8 @@ const Header = () => {
                     <div className=''>
                         {
                             user ?
-                                <div className='tooltip tooltip-bottom tooltip-primary w-12 pt-2' data-tip={user.displayName}>
-                                    <img className='rounded-full' src={user.photoURL} alt='User' />
+                                <div className='tooltip tooltip-bottom tooltip-primary pt-2 ' data-tip={user.displayName}>
+                                    <img className='w-12 h-12 rounded-full' src={user.photoURL} alt='User' />
                                 </div>
                                 :
                                 <FaUserAltSlash></FaUserAltSlash>
